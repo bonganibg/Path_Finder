@@ -1,3 +1,8 @@
 ﻿Map map = new Map("");
 
-Console.WriteLine(map.GetBounds());
+var availableDirections = map.GetAvailableMoves((0,0));
+
+foreach(var item in availableDirections)
+{
+    Console.WriteLine(item);
+}

@@ -22,13 +22,8 @@ public class Map
 
     public (int x, int y) GetBounds()
     {
-        if (_map is null)
-            throw new Exception("There is nothing there");
-        else 
-        {
-            (int x, int y) positoins = (_map.Length, _map[0].Length);
-            return positoins;
-        }
+        (int x, int y) positoins = (_map.Length, _map[0].Length);
+        return positoins;
     }
 
     // Returns moves than can be made excluding walls
