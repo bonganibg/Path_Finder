@@ -20,14 +20,32 @@ public class Map
         }
     }
 
+    public string GetValue((int x, int y) pos)
+    {
+        return _map[pos.x][pos.y];
+    }
+
     public (int x, int y) GetBounds()
     {
         (int x, int y) positoins = (_map.Length, _map[0].Length);
         return positoins;
     }
 
+    public Dictionary<Direction, (int x, int y)> GetMoveAndPosition((int x, int y) current)
+    {
+        Dictionary<Direction, (int x, int y)> output = new();
+
+        foreach(var direction in GetAvailableMoves(current))
+        {
+            output.Add(direction, (current.x + direction.GetValue().x, current.y + direction.GetValue().y));
+        }
+
+        return output;
+    }
+
     // Returns moves than can be made excluding walls
     // Returns an enum of the direction
+    // REPLACE WITH GetMoveAndPositoin
     public List<Direction> GetAvailableMoves((int x, int y) currentPosition)
     {
         List<Direction> availableDirections = new();

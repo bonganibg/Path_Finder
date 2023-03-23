@@ -1,14 +1,14 @@
 public class Node{
-    public String State { get; set; }
+    public (int x, int y) State { get; set; }
     public Node Parent { get; set; } = null;
-    public String Action { get; set; } = null;
+    public Direction Action { get; set; }
 
-    public Node(String State)
+    public Node((int x, int y) State)
     {
         this.State = State;
     }
     
-    public Node(String state, Node parent, String action)
+    public Node((int x, int y) state, Node parent, Direction action)
     {
         State = state;
         Parent = parent;

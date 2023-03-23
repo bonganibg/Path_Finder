@@ -1,8 +1,9 @@
-﻿Map map = new Map("");
+﻿PathFinder finder = new PathFinder();
 
-var availableDirections = map.GetAvailableMoves((0,0));
+var path = finder.FindPath();
 
-foreach(var item in availableDirections)
+foreach(var location in path)
 {
-    Console.WriteLine(item);
+    Console.WriteLine(location.ToString());
 }
+
