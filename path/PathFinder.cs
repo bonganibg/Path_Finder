@@ -1,3 +1,4 @@
+
 public class PathFinder
 {
 
@@ -32,7 +33,7 @@ public class PathFinder
                 {
                     path.Add(node.Action);
                     node = node.Parent;
-                }
+                }                
                 return path;
             }
 
@@ -43,9 +44,11 @@ public class PathFinder
             // Get next node 
             foreach(var direction in dict_moves.Keys)
             {
-                if (frontier.(item => item.State == dict_moves[direction]) != null && exploreredStates.Contains(node.State))
+                if (frontier.ContainsState(dict_moves[direction]) || exploreredStates.Contains(dict_moves[direction]))
+                    continue;
+                else
                 {
-                    var child = new Node(dict_moves[direction], node, direction);
+                    Node child = new Node(dict_moves[direction], node, direction);
                     frontier.Push(child);
                 }
             }
@@ -53,4 +56,6 @@ public class PathFinder
         }
 
     }
+
+    
 }

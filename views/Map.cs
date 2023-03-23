@@ -1,7 +1,7 @@
 public class Map
 {
     private string[][] _map;
-    private string _location = @"C:\Users\user\Documents\Development Stuff\AI\CS50_AI_0_Search\practice\path_finder\files\map1.txt";
+    private string _location = @"..\..\..\files\map1.txt";
 
     public Map(string location)
     {
