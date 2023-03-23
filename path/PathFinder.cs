@@ -1,4 +1,6 @@
 
+using path_finder.views;
+
 public class PathFinder
 {
 
@@ -6,7 +8,7 @@ public class PathFinder
     public List<Direction> FindPath()
     {
         int total_paths_checked = 0;
-        Node start_node = new Node((0,0));
+        Node start_node = new Node((9,0));
 
         // Frontier and explored states
         Stack<Node> frontier = new Stack<Node>();
@@ -15,8 +17,10 @@ public class PathFinder
         // Add start state to frontier
         frontier.Push(start_node);
 
+        Visual visual = new Visual();        
+
         while(true)
-        {
+        {           
             // Check if there are items in the frontier
             if (frontier.Count <= 0)
                 throw new System.Exception("There is no solution");
@@ -24,6 +28,9 @@ public class PathFinder
             // Set the node to check
             Node node = frontier.Pop();
             total_paths_checked++;
+
+            visual.ShowMap(map.GetMap(), node.State, exploreredStates.ToList());
+            Console.ReadKey();
 
             // Check if node is goal
             if (map.GetValue(node.State) == "2")

@@ -20,6 +20,11 @@ public class Map
         }
     }
 
+    public string[][] GetMap()
+    {
+        return _map;
+    }
+
     public string GetValue((int x, int y) pos)
     {
         return _map[pos.x][pos.y];
@@ -78,7 +83,7 @@ public class Map
             return false;
 
         // Check value
-        if (_map[position.x][position.y] == "+")
+        if (_map[position.x][position.y] == "-")
             return false;
         
         return true;
