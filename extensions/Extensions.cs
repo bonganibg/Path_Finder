@@ -14,26 +14,4 @@ public static class Exception
         
         throw new System.Exception("Directon does to exist");
     }
-
-    // Check Stack contains state
-    public static bool ContainsState(this Stack<Node> stack, (int x, int y) state)
-    {
-        for(int i = 0; i < stack.Count; i++)
-        {
-            if (stack.ElementAt(i).State == state)
-                return true;
-        }
-        return false;
-    }
-
-    // Check if a queue contains state
-    public static bool ContainsState(this Queue<Node> queue, (int x, int y) state)
-    {
-        for (int i = 0; i < queue.Count; i++)
-        {
-            if (queue.ElementAt(i).State == state)
-                return true;
-        }
-        return false;
-    }
 }

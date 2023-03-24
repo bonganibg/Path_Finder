@@ -11,13 +11,14 @@ public class PathFinder
         Node start_node = new Node((9,0));
 
         // Frontier and explored states
+        Frontier frontier = new Frontier(FrontierType.Queue);
         // Stack<Node> frontier = new Stack<Node>();
-        Queue<Node> frontier = new Queue<Node>();
+        // Queue<Node> frontier = new Queue<Node>();
         HashSet<(int x, int y)> exploreredStates = new HashSet<(int x, int y)>();
 
         // Add start state to frontier
         // frontier.Push(start_node);
-        frontier.Enqueue(start_node);
+        frontier.Add(start_node);
 
         Visual visual = new Visual();        
 
@@ -29,7 +30,7 @@ public class PathFinder
 
             // Set the node to check
             // Node node = frontier.Pop();
-            Node node = frontier.Dequeue();
+            Node node = frontier.Remove();
             total_paths_checked++;
 
             visual.ShowMap(map.GetMap(), node.State, exploreredStates.ToList());
@@ -54,13 +55,12 @@ public class PathFinder
             // Get next node 
             foreach(var direction in dict_moves.Keys)
             {
-                if (frontier.ContainsState(dict_moves[direction]) || exploreredStates.Contains(dict_moves[direction]))
+                if (frontier.Contains(dict_moves[direction]) || exploreredStates.Contains(dict_moves[direction]))
                     continue;
                 else
                 {
                     Node child = new Node(dict_moves[direction], node, direction);
-                    // frontier.Push(child);
-                    frontier.Enqueue(child);
+                    frontier.Add(child);
                 }
             }
 
