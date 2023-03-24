@@ -25,4 +25,15 @@ public static class Exception
         }
         return false;
     }
+
+    // Check if a queue contains state
+    public static bool ContainsState(this Queue<Node> queue, (int x, int y) state)
+    {
+        for (int i = 0; i < queue.Count; i++)
+        {
+            if (queue.ElementAt(i).State == state)
+                return true;
+        }
+        return false;
+    }
 }

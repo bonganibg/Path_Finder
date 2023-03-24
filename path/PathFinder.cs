@@ -11,11 +11,13 @@ public class PathFinder
         Node start_node = new Node((9,0));
 
         // Frontier and explored states
-        Stack<Node> frontier = new Stack<Node>();
+        // Stack<Node> frontier = new Stack<Node>();
+        Queue<Node> frontier = new Queue<Node>();
         HashSet<(int x, int y)> exploreredStates = new HashSet<(int x, int y)>();
 
         // Add start state to frontier
-        frontier.Push(start_node);
+        // frontier.Push(start_node);
+        frontier.Enqueue(start_node);
 
         Visual visual = new Visual();        
 
@@ -26,7 +28,8 @@ public class PathFinder
                 throw new System.Exception("There is no solution");
 
             // Set the node to check
-            Node node = frontier.Pop();
+            // Node node = frontier.Pop();
+            Node node = frontier.Dequeue();
             total_paths_checked++;
 
             visual.ShowMap(map.GetMap(), node.State, exploreredStates.ToList());
@@ -56,7 +59,8 @@ public class PathFinder
                 else
                 {
                     Node child = new Node(dict_moves[direction], node, direction);
-                    frontier.Push(child);
+                    // frontier.Push(child);
+                    frontier.Enqueue(child);
                 }
             }
 
@@ -65,4 +69,4 @@ public class PathFinder
     }
 
     
-}
+ }
