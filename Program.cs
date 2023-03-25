@@ -1,4 +1,4 @@
-﻿PathFinder finder = new PathFinder();
+﻿InformedSearch finder = new InformedSearch();
 
 var path = finder.FindPath();
 

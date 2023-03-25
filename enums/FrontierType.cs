@@ -1,5 +1,6 @@
 public enum FrontierType
 {
     Stack,
-    Queue
+    Queue,
+    PriorityQueue
 }
