@@ -76,7 +76,7 @@ public class Frontier
 
     private Node RemovePriorityQueue()
     {
-        var item = _fronterPriority.MaxBy(item => item.heuristic);
+        var item = _fronterPriority.MinBy(item => item.heuristic);
         _fronterPriority.Remove(item);
         return item.node;
     }
